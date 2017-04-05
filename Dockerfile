@@ -57,7 +57,10 @@ RUN { \
 	&& chmod 777 /var/run/mysqld \
     && test "$(id mysql)" = "uid=999(mysql) gid=999(mysql) groups=999(mysql)"
 
-COPY custom-my.cnf /etc/mysql/my.cnf	
+COPY custom-my.cnf /etc/mysql/my.cnf
+
+# COPY custom example databases
+COPY examples/*.sql /docker-entrypoint-initdb.d/
 	
 # comment out a few problematic configuration values
 # don't reverse lookup hostnames, they are usually another container
