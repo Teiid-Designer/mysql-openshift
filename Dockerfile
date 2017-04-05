@@ -1,9 +1,9 @@
 FROM debian:jessie
 
-MAINTAINER suport.cloud@gencat.cat
-
-# Aquesta imatge es basa en la imatge oficial de mysql -> https://hub.docker.com/_/mysql/
-# El docker-entrypoint s'ha de modificar pel tema de permisos
+#
+# Forked from https://github.com/gencat/mysql-openshift
+#
+MAINTAINER Teiid-Komodo Community <http://teiiddesigner.jboss.org>
 
 # add our user and group first to make sure their IDs get assigned consistently, regardless of whatever dependencies get added
 RUN groupadd -r mysql && useradd -r -g mysql mysql
